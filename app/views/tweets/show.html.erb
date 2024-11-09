@@ -1,0 +1,5 @@
+<p style="color: green"><%= notice %></p>
+
+<%= turbo_frame_tag dom_id(@tweet) do %>
+  <%= render @tweet %>
+<% end %>

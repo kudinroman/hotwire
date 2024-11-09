@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<%= console %>
+<% content_for :title, "Tweets" %>
+
+<h1>Tweets</h1>
+
+<%= turbo_stream_from "tweets" %>
+
+<%= turbo_frame_tag "tweet_form" do %>
+  <%= render "form", tweet: Tweet.new %>
+<% end %>
+
+<%= turbo_frame_tag "tweets" do %>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <%= render tweet %>
+    <% end %>
+  </div>
+<% end %>
